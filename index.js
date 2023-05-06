@@ -1,20 +1,28 @@
+// Requires
 require("dotenv").config();
-const { Client, Events, GatewayIntentBits } = require("discord.js");
-const express = require("express");
-const app = express();
+const { Client, Collection, GatewayIntentBits } = require("discord.js");
+const fs = require("fs");
 
-app.get("/", (req, res) => {
-  res.send("Unavailable at this time.");
-});
-
-app.listen(3000, () => {
-  console.log("Hosted at port 3000");
-});
-
+// Variables
+const { token } = process.env;
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-client.on("ready", () => {
-  console.log("Logged in as " + client.user.tag + ".")
-})
+// Client Variables
+client.commands = new Collection();
+client.commandArray = [];
 
-client.login(process.env.token);
+// Function Handling
+const functionFolders = fs.readdirSync("./functions");
+for (const folder of functionFolders) {
+  const functionFiles = fs
+    .readdirSync(`./functions/${folder}`)
+    .filter((file) => file.endsWith(".js"));
+  for (const file of functionFiles) {
+    require(`./functions/${folder}/${file}`)(client);
+  }
+}
+
+client.handleEvents();
+client.handleCommands();
+client.handleSite();
+client.login(token);

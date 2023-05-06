@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Management Panel</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/panel.css">
+</head>
+<body>
+	<div class="container">
+		<div class="sidebar">
+			<ul>
+				<li class="select-box"><select id="serverlist"><option>Loading...</option></select></li>
+				<li class="disabled"><a href="#dashboard">Dashboard</a></li>
+				<li class="disabled"><a href="#leveling">Leveling</a></li>
+				<li class="disabled"><a href="#settings">Settings</a></li>
+				<li class="disabled"><a href="#help">Help</a></li>
+			</ul>
+		</div>
+		<div class="main">
+			<div style="display: block" id="dashboard" class="tabcontent">
+				<h2>Dashboard</h2>
+			</div>
+			<div id="leveling" class="tabcontent">
+				<h2>Users</h2>
+				
+			</div>
+			<div id="settings" class="tabcontent">
+				<h2>Settings</h2>
+				<p>Here you can configure your bot settings.</p>
+			</div>
+			<div id="help" class="tabcontent">
+				<h2>Help</h2>
+				<p>If you need help, please contact support.</p>
+			</div>
+		</div>
+	</div>
+	<script src="assets/js/panel.js"></script>
+</body>
+</html>
