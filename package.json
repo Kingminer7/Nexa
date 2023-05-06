@@ -5,8 +5,9 @@
     "repository": "https://github.com/Kingminer7/Nexa.git",
     "homepage": "http://nexa.km7dev.codes/",
     "dependencies": {
-        "express": "4.18.0",
-        "discord.js": "14.5.0"
+        "express": ">{4.18.0",
+        "discord.js": ">=14.5.0",
+        "dotenv": ">=16.0.0"
     },
     "main": "index.js",
     "engines": {
